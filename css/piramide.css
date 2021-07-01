@@ -1,0 +1,66 @@
+body{
+    background-color: #fff;
+}
+.contenedor{
+    height: 300px;
+    width: 300px;
+    perspective: 1000px;
+    margin: 50px auto;
+  transform:scale(.9);
+}
+.box{
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    animation: rotar 7s infinite linear;
+}
+
+.elementos{
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    position: absolute;
+}
+:root{
+    --transladacion:translateZ(150px)
+}
+.elementos:nth-child(1){
+    transform: rotateY(0deg) var(--transladacion);
+}
+.elementos:nth-child(2){
+    transform: rotateY(180deg) var(--transladacion);
+}
+.elementos:nth-child(3){
+    transform: rotateY(90deg) var(--transladacion);
+}
+.elementos:nth-child(4){
+    transform: rotateY(-90deg) var(--transladacion);
+}
+.elementos:nth-child(5){
+    transform: rotateX(-90deg) var(--transladacion);
+    background-color: #fff;
+}
+.elementos:nth-child(6){
+    transform: rotateX(90deg) translateZ(-200px);
+    background-color: #111;
+}
+.item{
+    height: 100%;
+    width: 100%;
+    transform-origin: bottom;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    transform: rotateX(30deg);
+    transition: 2s;
+}
+
+
+
+.contenedor:hover .item{
+    transform: rotateX(-80deg);
+}
+
+@keyframes rotar{
+    100%{
+        transform: rotateY(360deg);
+    }
+}
